@@ -28,6 +28,8 @@ Wähle: „Network address translation (NAT)“
 WAN-Interface (10.2.RAUM.XX) als Verbindung zum Internet markieren
 
 LAN-Interface als internes Netzwerk markieren
+
+Bereichsoptionen (Scope): 006 DNS Server einrichten - 192.168.RAUM.254
 --------------------------------------------------------------------------------
 
 RRAS
@@ -84,3 +86,7 @@ deaktiviere den integrierten DHCP von RRAS:
 In RRAS > NAT > Eigenschaften > Reiter „Adresszuweisung“
 
 Stelle sicher, dass kein DHCP aktiviert ist
+
+Client: ipconfig /release + /renew
+
+ping + nslookup google auf dns problem. wenn Problem: 
