@@ -1,1 +1,76 @@
-# LAP
+DHCP-Server nur auf LAN aktivieren
+
+Öffne den DHCP-Manager (dhcpmgmt.msc)
+
+Rechtsklick auf den Server > „New Scope“ erstellen.
+
+Bereich: z. B. 192.168.XX.10/24 bis 192.168.XX.20/24
+
+Gateway (Router): 10.2.RAUM.254/24
+
+Stelle sicher, dass dieser DHCP-Scope nur für die LAN-NIC gilt:
+
+Im DHCP-Manager: Scope aktivieren und im Bereich „Bindings“ nur die LAN-Schnittstelle (192.168.RAUM.254) auswählen.
+
+DHCP > Server > Eigenschaften > „Bindings“
+
+Internetzugang über WAN bereitstellen (NAT)
+Wenn du Windows Server Routing installiert hast (über „Rollen und Features“):
+
+Installiere die Rolle „Routing und Remotezugriff“ (RRAS) über den Servermanager.
+
+Öffne RRAS-Manager, konfiguriere:
+
+Rechtsklick auf den Server > „Configure and Enable Routing and Remote Access“
+
+Wähle: „Network address translation (NAT)“
+
+WAN-Interface (10.2.RAUM.XX) als Verbindung zum Internet markieren
+
+LAN-Interface als internes Netzwerk markieren
+--------------------------------------------------------------------------------
+
+RRAS
+
+Öffne den Server-Manager
+
+Gehe zu „Verwalten“ > „Rollen und Features hinzufügen“
+
+Wähle: Remotezugriff
+
+Unter Rollendienste: „Routing“ und „DirectAccess und VPN (RAS)“
+
+Nach der Installation:
+
+Öffne Routing und RAS über rrasmgmt.msc
+
+Rechtsklick auf deinen Servernamen > „Routing und RAS konfigurieren und aktivieren“
+
+Assistent starten:
+
+Wähle „Benutzerdefinierte Konfiguration“
+
+Aktiviere „NAT“ und „LAN-Routing“
+
+Fertigstellen > RRAS-Dienst starten
+
+NAT einrichten für Internetzugang
+In der RRAS-Konsole:
+
+Navigiere zu IPv4 > NAT
+
+Rechtsklick > „Neue Schnittstelle hinzufügen“
+
+Wähle deine WAN-NIC (z. B. 10.2.RAUM.1XX)
+
+Typ: „Öffentlich“, NAT aktivieren
+
+Wiederhole für LAN-NIC (192.168.RAUM.254)
+
+Typ: „Privat“, kein NAT aktivieren
+
+IP-Forwarding aktivieren:
+
+powershell
+Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "LAN-NIC"
+Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "WAN-NIC"
