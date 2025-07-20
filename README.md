@@ -72,5 +72,7 @@ Typ: „Privat“, kein NAT aktivieren
 IP-Forwarding aktivieren:
 
 powershell
+
 Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "LAN-NIC"
+
 Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "WAN-NIC"
