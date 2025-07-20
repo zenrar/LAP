@@ -89,4 +89,4 @@ Stelle sicher, dass kein DHCP aktiviert ist
 
 Client: ipconfig /release + /renew
 
-ping + nslookup google auf dns problem. wenn Problem: 
+ping + nslookup google auf dns problem. wenn Problem: kontrolle dns adresse = LAN IP
