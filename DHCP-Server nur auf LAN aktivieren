@@ -71,8 +71,16 @@ Typ: „Privat“, kein NAT aktivieren
 
 IP-Forwarding aktivieren:
 
-powershell
+powershell + Firewall (LAN + WAN = NIC NAME)
 
-Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "LAN-NIC"
+Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "LAN"
 
-Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "WAN-NIC"
+Set-NetIPInterface -Forwarding Enabled -InterfaceAlias "WAN"
+
+Get-NetFirewallRule -DisplayGroup *routing* | Enable-NetFirewallRule
+
+deaktiviere den integrierten DHCP von RRAS:
+
+In RRAS > NAT > Eigenschaften > Reiter „Adresszuweisung“
+
+Stelle sicher, dass kein DHCP aktiviert ist
