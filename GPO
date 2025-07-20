@@ -1,0 +1,71 @@
+Gruppenrichtlinienverwaltung öffnen (gpmc.msc)
+
+Rechtsklick auf die passende OU (z. B. „Benutzer“) > „Neue GPO erstellen und verknüpfen“
+
+Name: B_Einkauf_Laufwerk, B_Verkauf_Laufwerk, B_Controlling_Laufwerk
+
+GPO bearbeiten:
+
+Pfad: Benutzerkonfiguration > Einstellungen > Windows-Einstellungen > Laufwerkszuordnungen
+
+Rechtsklick > „Neu > Zugeordnetes Laufwerk“
+
+Aktion: Erstellen
+
+Speicherort: \\DCxx\Einkauf (je nach GPO)
+
+Laufwerksbuchstabe: z. B. E:, V:, C:
+
+Verbindung wiederherstellen anhaken
+
+Beschriftung: z. B. „Einkauf-Daten“
+
+Zielgruppenadressierung aktivieren:
+
+Reiter „Gemeinsame Optionen“ > Haken bei „Zielgruppenadressierung auf Elementebene“
+
+Gruppe auswählen: z. B. Einkauf
+------------------------------------------------
+Bilddatei (z. B. Wallpaper.jpg) auf einem Share ablegen: \\DCxx\Freigabe\Wallpaper.jpg
+
+Leseberechtigung für „Domänen-Benutzer“
+
+GPO-Erstellung:
+Neue GPO erstellen: B_Hintergrundbild
+
+GPO bearbeiten: (rechtsklick auf die erstellte GPO)
+
+Pfad: Benutzerkonfiguration >Richtlinien > Administrative Vorlagen > Desktop > Desktop
+
+Richtlinie: „Desktop-Hintergrund“
+
+Aktivieren
+
+Pfad: \\DCxx\Freigabe\Wallpaper.jpg
+
+Stil: z. B. „Gestreckt“ oder „Zentriert“
+
+Hinweis: Nur .jpg oder .bmp werden unterstützt. UNC-Pfad verwenden!
+----------------------------------------------------------------------------
+Firefox MSI-Installer von Mozilla ESR herunterladen
+
+Datei z. B. in \\DCxx\Software\Firefox.msi ablegen
+
+Leseberechtigung für „Domänen-Computer“
+
+GPO-Erstellung:
+Neue GPO erstellen: C_Firefox_Installation
+
+GPO bearbeiten:
+
+Pfad: Computerkonfiguration > Richtlinien > Softwareeinstellungen > Softwareinstallation
+
+Rechtsklick > „Neu > Paket“
+
+Pfad: \\DCxx\Software\Firefox.msi
+
+Bereitstellungsmethode: Zugewiesen
+
+GPO mit der Computer-OU verknüpfen
+
+Tipp: Firefox wird beim nächsten Neustart installiert. MSI muss über UNC erreichbar sein.
