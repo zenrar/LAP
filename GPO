@@ -71,3 +71,5 @@ GPO mit der Computer-OU verknüpfen
 Tipp: Firefox wird beim nächsten Neustart installiert. MSI muss über UNC erreichbar sein.
 
 Internet Explorer Warnmeldung? - IE öffnen, internetoptionen, sicherheit, "about:security_mmc.exe" hinzufügen (ggf slider ganz runter)
+
+VERKNÜPFUNG AUF DOMÄNE NICHT VERGESSEN!
