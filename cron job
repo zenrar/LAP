@@ -1,0 +1,20 @@
+script "uptimelog.sh" erstellen /home/USERNAME/uptimelog.sh
+
+#!/bin/bash
+echo "$(date) - VM ist online" >> /mnt/netz/uptimelog.txt
+
+berechtigung anpassen
+
+chmod +x /home/dein-benutzername/uptimelog.sh
+
+crontab -e
+
+im editor hinzufügen:
+
+* * * * * /home/BENUTZERNAME/uptimelog.sh
+
+sollte nun in der Windows VM Freigabe auftauchen.
+
+probleme mit Gigolo?
+
+sudo mount -t cifs //WINDOWS_IP/data /mnt/netz \ -o username=USERNAME,password=PASSWORD,uid=$(id -u),gid=$(id -g)
