@@ -18,3 +18,8 @@ sollte nun in der Windows VM Freigabe auftauchen.
 probleme mit Gigolo?
 
 sudo mount -t cifs //WINDOWS_IP/data /mnt/netz \ -o username=USERNAME,password=PASSWORD,uid=$(id -u),gid=$(id -g)
+
+
+RDP: Remina, TigerVNC
+
+
