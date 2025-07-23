@@ -1,0 +1,34 @@
+
+sudo apt install apache2 php libapache2-mod-php
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+PHP-Info-Seite erstellen:
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php
+im browser: http://IP-Adresse/info.php
+
+xrdp Raspi : 
+sudo apt install xrdp 
+... enable & start
+sudo apt install task-xfce-desktop
+
+Script Beispiel für Sync: 
+
+@echo off
+
+robocopy H:\ X:\sicherung\home /MIR /R:2 /W:5 /FFT /NP
+robocopy S:\ X:\sicherung\share /MIR /R:2 /W:5 /FFT /NP
+
+Anmeldeskript pro Benutzer Beispiel Netzlaufwerke einbinden :
+
+@echo off
+net use Q: \\192.168.1.3\share /persistent:yes
+net use H: \\192.168.1.3\home /persistent:yes
+
+
+Ubuntu : 
+sudo apt -t cifs //10.0.0.0/data /mnt/netz -o username=...,password=...
+
+Skript erstellen: 
+nano ~/bllablla.sh
+chmod +x ~/bllablla.sh - ausführbar machen
