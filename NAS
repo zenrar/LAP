@@ -10,3 +10,8 @@ robocopy \\QUELLE\home \\ZIEL\public\Sicherung\backup\data /MIR /R:2 /W:3 /MT:15
 
 net use \\IP\home /d
 net use \\IP2\public\Sicherung\backup\data /d
+------------------------------------------------
+Anmeldescript zur auto Laufwerkseinbindung:
+shell:Startup > dort batch Datei mit script erstellen
+
+net use DRIVELETTER: \\NAS-S-xx.lap\FREIGABE /persistent:yes
